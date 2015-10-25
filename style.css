@@ -21,19 +21,23 @@
 
 .albums .album-collection{
   padding: 20px 10px 20px 10px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+  display: block;
 }
 
 .albums .album-collection img{
-  width: 200px;
-  height: 200px;
+  /*width: 200px;
+  height: 200px;*/
   display: block;
   text-align: center;
 
 }
 
 .album-content{
-  width: 200px;
-  height: 80px;
+  /*width: 200px;
+  height: 80px;*/
   display: block;
   text-align: center;
   background-color: purple;
