@@ -21,7 +21,7 @@
 
 <!-- Layer 1 -->
 	<div class="row albums">
-		<div ng-repeat="collection in collections" ng-class="{'active':isActive($index)}" ng-click="showPhoto($index)" class=" album-collection col-xs-6 col-sm-4 col-md-3">
+		<div ng-repeat="collection in collections" ng-class="{'active':isActive($index)}" ng-click="showPhoto($index)" class=" album-collection col-xs-6 col-sm-6 col-md-4">
 			<div><img class="img-responsive" ng-src="{{collection.cover}}"></div>
 			<div class="album-content">
 				<p>{{collection.artist}}</p>
