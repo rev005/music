@@ -8,7 +8,7 @@
 .main{}
 
 .albums{
-  background-color: #cccc00;
+  background-color: #181818;
   height: auto;
   position: absolute;
   min-height: 100%;
@@ -17,10 +17,12 @@
   z-index: 1;
   min-width: 100%;
   max-width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .albums .album-collection{
-  padding: 20px 10px 20px 10px;
+  padding: 20px 20px 20px 20px;
   margin-right: auto;
   margin-left: auto;
   text-align: center;
@@ -42,15 +44,33 @@
 .album-content{
   /*width: 200px;
   height: 80px;*/
+  padding: 5px;
+  height: auto;
   display: block;
   color: azure;
-  text-align: center;
-  background-color: purple;
+  text-align: left;
+  background-color: #282828;
+}
+
+.album-content p:nth-child(2){
+  color:#686868;
+  text-align: left;
 }
 
 .player{
-  background-color: #0000cc;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#424242+0,202020+100 */
+background: #424242; /* Old browsers */
+background: -moz-linear-gradient(top,  #424242 0%, #202020 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#424242), color-stop(100%,#202020)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #424242 0%,#202020 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #424242 0%,#202020 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #424242 0%,#202020 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #424242 0%,#202020 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#424242', endColorstr='#202020',GradientType=0 ); /* IE6-9 */
+
+border-top: 2px solid #24CF5F;
   height: auto;
+  padding: 10px;
   opacity: 1;
   z-index: 3;
   position: fixed;
@@ -61,7 +81,8 @@
 
 .player .player-cover{
   display:none;
-  padding: 30px 100px 100px 30px;
+  /*padding: 30px 100px 100px 30px;*/
+
 }
 
 .player .player-collapsed *{
@@ -71,21 +92,78 @@
 .player-cover img{
   width: 200px;
   height:200px;
-  display: block;
+  border-radius: 50%;
+  display: block; 
   text-align: center;
   margin-right: auto;
   margin-left: auto;
   margin-top:  50px;
 }
+
+.player-cover p{
+  text-align: center;
+  color: azure;
+  padding-top: 15px;
+  font-weight: bold;
+
+}
+
+.small-song p{
+  color: azure;
+  text-align: ;
+  padding-left: 40px;
+}
+
+.small-song button{
+  float: right;
+}
+
+.player-collapsed .play-small, .player-collapsed .stop-small{
+  float: right;
+  background-color: transparent;
+  border:  solid #24CF5F;
+  color: #24CF5F;
+  border-radius: 50%;
+  padding: 2px 5px 2px 5px;
+}
+
+#toggle-up{
+  background-color: transparent;
+  border-radius: 50%;
+  color: #24CF5F;
+  border: none;
+  font-size: 16px;
+  padding: 2px 5px 2px 5px;
+}
+/*audio #controls{
+  display:none;
+}*/
 /*.player .player-cover img{
   margin-left: auto;
   margin-right: auto;
 }*/
+.main-controls button{
+  color: azure;
+  border-radius: 50%;
+  border: none;
+  font-size: 18px;
+  background-color: transparent;
+  padding: 0 20px 0 20px;
+}
 
+.main-controls button:nth-child(2), .main-controls button:nth-child(3){
+  color: ;
+  font-size: px;
+  padding-top: px;
+}
+.main-controls{
+  padding: 40px;
+  background-color: ;
+}
 /*************** layer2 style********/
 
 .songs-list{
-  background-color: #00cc00;
+  background-color: #282828;
   height: auto;
   min-height: 100%;
   /*max-height: 100%;*/
@@ -93,10 +171,22 @@
   z-index: 2;
   position: absolute;
   top: 0%;
-  display:none;
+  display: none;
   /*visibility: hidden;*/
   min-width: 100%;
   max-width: 100%;
+}
+
+.top-part{
+
+}
+.center-cov{
+  -webkit-box-shadow: 0 0 1200px 300px #24CF5F;
+  box-shadow: 0 0 2200px 200px #282828;
+  border-radius: 10px;
+
+  /*filter: blur(5px);
+  -webkit-filter: blur(5px);*/
 }
 
 .songs-list div img{
@@ -106,9 +196,66 @@
   margin-left: auto;
   margin-top:  50px;
 }
+
+.playlist{
+  background-color: #181818;
+  color: #909090;
+  border-top: 2px solid #24CF5F;
+
+  position: absolute;
+}
+
 .playlist button {
   display: block;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
+  position: relative;
+  top: -15px;
+
+  width: 200px;
+  height: auto;
+  padding: 5px;
+  border-radius: 30px;
+  background-color: #24CF5F;
+  border:none;
+  color:azure;
+  font-weight: bold;
+
+  -webkit-box-shadow: 0 0 10px 7px #282828;
+  box-shadow: 0 0 10px 7px #282828;
+}
+
+#x{
+  background-color: transparent;
+  border-radius: 50%;
+  border:none;
+  font-size: 18px;
+  color: #24CF5F;
+  position: absolute;
+  top:5px;
+  right: 5px;
+}
+
+.list-head p{
+  background-color: #181818;
+  padding: 20px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.playlist ul li{
+  border-top: 1px solid #909090;
+  padding: 10px 2px 10px 2px;
+  color: azure;
+  list-style-image: url();
+}
+
+.playlist ul li:hover{
+  background-color: #22CF5F;
+}
+
+.playlist ul li:last-child{
+  border-bottom: 1px solid #909090;
+  margin-bottom: 90px;
 }
