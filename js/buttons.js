@@ -1,14 +1,23 @@
 $(document).ready(function(){
 
       $(".album-collection,#x").click(function(){
-        $(".albums,.songs-list").toggle();
+        $(".albums,.songs-list").fadeToggle();
       });
 
-      $("#toggle-up").click(function(){
-        $(".player-cover").toggle( );
+      $("#toggle-up, #toggle-down").click(function(){
+        $(".player-cover, #small-song, #small-btns").slideToggle();
+        $("#toggle-up, #toggle-down").toggle();
       });
 
-      var audioArray = document.getElementsByClassName('playsong');
+      $(".play-small, .stop-small, .play-big, .stop-big").click(function(){
+        $(".play-small, .stop-small, .play-big, .stop-big").toggle();
+      });
+
+      // $(".play-small, .stop-small, .play-big, .stop-big").click(function(){
+      //   $("").toggle();
+      // });
+
+     /* var audioArray = document.getElementsByClassName('playsong');
       console.log(audioArray);
       var nowPlaying = audioArray[0];
       nowPlaying.load();
@@ -19,7 +28,7 @@ $(document).ready(function(){
       
       $('.stop').on('click', function(){
           nowPlaying.pause();
-      });
+      });*/
 	});
 
 

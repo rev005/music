@@ -1,83 +1,133 @@
 <!DOCTYPE html>
-<html >
+<html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<title>Music Player</title>
-<link href="style.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<!-- <script src="bower_components\angular\angular.min.js"></script> -->
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-<script src="js/buttons.js"></script>
-<!-- Modules -->
-<script src="js/app.js"></script>
-<!-- Controllers -->
-<script src="js/MainController.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Music Player</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <!-- <script src="bower_components\angular\angular.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="js/buttons.js"></script>
+    <!-- Modules -->
+    <script src="js/app.js"></script>
+    <!-- Controllers -->
+    <script src="js/MainController.js"></script>
 </head>
 
 <body ng-app="myApp">
-	
-<div ng-controller="MainController as music" class="container-fluid main">
-
-<!-- Layer 1 -->
-	<div class="row albums">
-		<div ng-repeat="collection in collections" ng-class="{'active':isActive($index)}" ng-click="showPhoto($index)" class=" album-collection col-xs-6 col-sm-6 col-m-4">
-			<div><img class="img-responsive" ng-src="{{collection.cover}}"></div>
-			<div class="album-content">
-				<p>{{collection.artist}}</p>
-				<p> Album details</p>
-			</div>
-		</div>		
-	</div>
-		
-<!-- Layer 2 -->		
-	<div class="row songs-list">		
-		<div ng-repeat="collection in collections"  ng-show="isActive($index)" class="top-part col-xs-12 col-sm-12 col-m-12" 
-		style="background: url('{{collection.cover}}');background-size: cover;background-attachment:fixed; ">
-			<button id="x"><span class="glyphicon glyphicon-remove-circle"></span></button>
-			<div ng-repeat="collection in collections"  ng-show="isActive($index)"><img class=" center-cov img-responsive" ng-src="{{collection.cover}}"></div>
-			<p class="text-center">Album Name</p>
-		</div>
-		<div class="playlist col-xs-12 col-sm-12 col-m-12">
-			<button><span class="glyphicon glyphicon-play"> </span> Play All</button>
-			<div class=" row list-head"><p class="text-left">Songs List</p></div>
-			<ul ng-repeat="collection in collections"  ng-show="isActive($index)">
-				<li ng-repeat=" song in collection.songs" ng-class="{'active':isActive1($index)}" ng-click="showPhoto1($index)">{{song}}</li>
-			</ul>
-		</div>
-	</div>
-		
-
-<!-- Layer 3 -->		
-	<div class="row player">
-		<div class="player-collapsed col-xs- 12 col-sm-12 col-m-12">
-			<button id="toggle-up"><span class="glyphicon glyphicon-chevron-up"></span></button>
-			<div class="small-song" ng-repeat="collection in collections"  ng-show="isActive($index)">
-				<p ng-repeat=" song in collection.songs" ng-show="isActive1($index)">{{song}}</p>
-				<!-- <audio controls ng-repeat=" song in collection.songs" ng-show="isActive1($index)" ng-src="{{song}}" class="playsong" ></audio> -->				
-			</div>
-			<button class="play play-small"><span class="glyphicon glyphicon-play"></span></button>
-			<button class="stop stop-small"><span class="glyphicon glyphicon-pause"></span></button>	
-		</div>
-		<div ng-repeat="collection in collections"  ng-show="isActive($index)" class="player-cover col-xs-12 col-sm-12 col-m-12">
-			<img class="img-responsive" ng-src="{{collection.cover}}">
-			<p>{{collection.artist}}</p>
-			<div class="row main-controls" >
-				<div class="4btns text-center col-xs-12 col-sm-12 col-m-12">
-				<button class=""><span class="glyphicon glyphicon-fast-backward"></span></button>
-				<button class=""><span class="glyphicon glyphicon-play"></span></button>
-				<button class=""><span class="glyphicon glyphicon-pause"></span></button>
-				<button class=""><span class="glyphicon glyphicon-fast-forward"></span></button>
-				</div>			
-			</div>
-		</div>
-	</div>
-
-</div>
-
-
+    <div ng-controller="MainController as music" class="container-fluid main">
+        <!-- Layer 1 -->
+        <div class="row albums">
+            <div ng-repeat="collection in collections" ng-class="{'active':isActive($index)}" ng-click="showPhoto($index)" class=" album-collection col-xs-6 col-sm-6 col-md-3">
+                <div><img class="img-responsive" ng-src="{{collection.cover}}"></div>
+                <div class="album-content">
+                    <p>{{collection.artist}}</p>
+                    <p> Album details</p>
+                </div>
+            </div>
+        </div>
+        <!-- Layer 2 -->
+        <div class="row songs-list">
+            <div ng-repeat="collection in collections" ng-show="isActive($index)" class="top-part col-xs-12 col-sm-12 col-md-12" style="background: url('{{collection.cover}}');background-size: cover;background-attachment:fixed; ">
+                <button id="x"><span class="glyphicon glyphicon-remove-circle"></span></button>
+                <div ng-repeat="collection in collections" ng-show="isActive($index)"><img class=" center-cov img-responsive" ng-src="{{collection.cover}}"></div>
+                <p class="text-center">Album Name</p>
+            </div>
+            <div class="playlist col-xs-12 col-sm-12 col-md-12">
+                <button><span class="glyphicon glyphicon-play"> </span> Play All</button>
+                <div class=" row list-head">
+                    <p class="text-left">Songs List</p>
+                </div>
+                <ul ng-repeat="collection in collections" ng-show="isActive($index)">
+                    <li ng-repeat=" song in collection.title" ng-class="{'active':isActive1($index)}" ng-click=" showPhoto1($index)">{{$index+1}}. &nbsp &nbsp {{song}}</li>
+                </ul>
+            </div>
+        </div>
+        <!-- Layer 3 -->
+        <div class="row player">
+            <div class="player-collapsed row">
+                <button class="col-xs-1 col-sm-1 col-md-1" id="toggle-up"><span class="glyphicon glyphicon-chevron-up"></span></button>
+                <div class="text-center col-xs-9 col-sm-9 col-md-9" id="small-song" ng-repeat="collection in collections" ng-show="isActive($index)">
+                    <p ng-repeat=" song in collection.title" ng-show="isActive1($index)">{{song}} - {{collection.aname}}</p>
+                    <!-- <p>{{collection.aname}}</p> -->
+                    <audio controls ng-repeat=" song in collection.songs" ng-show="isActive1($index)" ng-src="{{song}}" class="playsong"></audio>
+                </div>
+                <div class="col-xs-2 col-sm-2 col-md-2" id="small-btns">
+                    <button class="play play-small"><span class="glyphicon glyphicon-play"></span></button>
+                    <button class="stop stop-small"><span class="glyphicon glyphicon-pause"></span></button>
+                </div>
+            </div>
+            <div ng-repeat="collection in collections" ng-show="isActive($index)" class="player-cover row">
+                <button class="col-xs-1 col-sm-1 col-md-1" id="toggle-down"><span class="glyphicon glyphicon-chevron-down"></span></button>
+                <p class="col-xs-10 col-sm-10 col-md-10" id="big-artist">{{collection.artist}}</p>
+                <p class="col-xs-1 col-sm-1 col-md-1"></p>
+                <img class="img-responsive" ng-src="{{collection.cover}}">
+                <!-- <p ng-repeat=" song in collection.songs" ng-show="isActive1($index)">{{song}} - {{collection.aname}}</p> -->
+                <p ng-repeat=" song in collection.title" ng-show="isActive1($index)">{{song}}</p>
+                <p id="big-song">{{collection.aname}}</p>
+                <div class="row main-controls">
+                    <div class="4btns text-center col-xs-12 col-sm-12 col-md-12">
+                        <button class=""><span class="glyphicon glyphicon-fast-backward"></span></button>
+                        <button class="play-big"><span class="glyphicon glyphicon-play"></span></button>
+                        <button class="stop-big"><span class="glyphicon glyphicon-pause"></span></button>
+                        <button class=""><span class="glyphicon glyphicon-fast-forward"></span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="row player">
+        <div class="player-collapsed col-xs- 12 col-sm-12 col-md-12">
+            <button id="toggle-up"><span class="glyphicon glyphicon-chevron-up"></span></button>
+            <div class="small-song" ng-repeat="collection in collections"  ng-show="isActive($index)">
+                <p ng-repeat=" song in collection.songs" ng-show="isActive1($index)">{{song}}</p>
+                <audio controls ng-repeat=" song in collection.songs" ng-show="isActive1($index)" ng-src="{{song}}" class="playsong" ></audio>              
+                <audio ng-repeat=" song in collection.songs" ng-show="isActive1($index)" controls>
+                    <source  ng-src="{{song}}" type="audio/mp3">
+                </audio>
+            </div>
+            <button class="play play-small"><span class="glyphicon glyphicon-play"></span></button>
+            <button class="stop stop-small"><span class="glyphicon glyphicon-pause"></span></button>    
+        </div>
+        <div ng-repeat="collection in collections"  ng-show="isActive($index)" class="player-cover col-xs-12 col-sm-12 col-md-12">
+            <img class="img-responsive" ng-src="{{collection.cover}}">
+            <p>{{collection.artist}}</p>
+            <div class="row main-controls" >
+                <div class="4btns text-center col-xs-12 col-sm-12 col-md-12">
+                <button class=""><span class="glyphicon glyphicon-fast-backward"></span></button>
+                <button class=""><span class="glyphicon glyphicon-play"></span></button>
+                <button class=""><span class="glyphicon glyphicon-pause"></span></button>
+                <button class=""><span class="glyphicon glyphicon-fast-forward"></span></button>
+                </div>          
+            </div>
+        </div>
+    </div> -->
+    </div>
 </body>
 
-
 </html>
+<!-- <div class="row player">
+        <div class="player-collapsed col-xs- 12 col-sm-12 col-md-12">
+            <button id="toggle-up"><span class="glyphicon glyphicon-chevron-up"></span></button>
+            <div class="small-song" ng-repeat="collection in collections"  ng-show="isActive($index)">
+                <p ng-repeat=" song in collection.songs" ng-show="isActive1($index)">{{song}}</p>
+                <audio controls ng-repeat=" song in collection.songs" ng-show="isActive1($index)" ng-src="{{song}}" class="playsong" ></audio>              
+            </div>
+            <button class="play play-small"><span class="glyphicon glyphicon-play"></span></button>
+            <button class="stop stop-small"><span class="glyphicon glyphicon-pause"></span></button>    
+        </div>
+        <div ng-repeat="collection in collections"  ng-show="isActive($index)" class="player-cover col-xs-12 col-sm-12 col-md-12">
+            <img class="img-responsive" ng-src="{{collection.cover}}">
+            <p>{{collection.artist}}</p>
+            <div class="row main-controls" >
+                <div class="4btns text-center col-xs-12 col-sm-12 col-md-12">
+                <button class=""><span class="glyphicon glyphicon-fast-backward"></span></button>
+                <button class=""><span class="glyphicon glyphicon-play"></span></button>
+                <button class=""><span class="glyphicon glyphicon-pause"></span></button>
+                <button class=""><span class="glyphicon glyphicon-fast-forward"></span></button>
+                </div>          
+            </div>
+        </div>
+    </div> -->
